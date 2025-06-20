@@ -22,7 +22,8 @@ const features = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-16 px-4">
+    <div>
+        <section className="py-16 px-4">
       <div className="max-w-[1600px] mx-auto">
         <h2 className="text-3xl font-bold text-center text-neutral mb-12">
           Why Choose ProFast?
@@ -49,6 +50,8 @@ const WhyChooseUs = () => {
         </div>
       </div>
     </section>
+    <p className="border mb-4 border-dashed"></p>
+    </div>
   );
 };
 
