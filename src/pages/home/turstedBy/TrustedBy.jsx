@@ -20,7 +20,7 @@ const TrustedBy = () => {
         {/* Marquee Section */}
         <div className="w-full overflow-hidden">
           <div className="flex animate-marquee whitespace-nowrap gap-10">
-            <Marquee pauseOnHover={true} speed={50}>
+            <Marquee pauseOnHover speed={50} gradient={false}>
               <div className="flex gap-20">
                 <img className="max-w-[96px] min-h-[28px]" src={brands1} alt="" />
                 <img className="max-w-[96px] min-h-[28px]" src={brands2} alt="" />

@@ -3,6 +3,7 @@ import Banner from './banner/Banner';
 import HowItWorks from './howItWorks/HowItWorks';
 import OurServices from './ourServices/OurServices';
 import TrustedBy from './turstedBy/TrustedBy';
+import WhyChooseUs from './whyChooseUs/WhyChooseus';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <HowItWorks></HowItWorks>
             <OurServices></OurServices>
             <TrustedBy></TrustedBy>
+            <WhyChooseUs></WhyChooseUs>
         </div>
     );
 };
