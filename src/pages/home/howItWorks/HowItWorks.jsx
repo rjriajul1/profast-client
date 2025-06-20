@@ -1,25 +1,31 @@
-import { FaMapMarkedAlt, FaBoxOpen, FaTruckMoving, FaThumbsUp } from 'react-icons/fa';
+import {
+  FaMapMarkedAlt,
+  FaBoxOpen,
+  FaTruckMoving,
+  FaThumbsUp,
+} from "react-icons/fa";
 
 const steps = [
   {
     icon: <FaMapMarkedAlt className="text-4xl text-orange-500" />,
-    title: 'Booking Pick & Drop',
-    description: 'Choose your pickup and drop location to book your delivery instantly.',
+    title: "Booking Pick & Drop",
+    description:
+      "Choose your pickup and drop location to book your delivery instantly.",
   },
   {
     icon: <FaBoxOpen className="text-4xl text-orange-500" />,
-    title: 'Package Handling',
-    description: 'Our team ensures safe and secure handling of your items.',
+    title: "Package Handling",
+    description: "Our team ensures safe and secure handling of your items.",
   },
   {
     icon: <FaTruckMoving className="text-4xl text-orange-500" />,
-    title: 'Fast Delivery',
-    description: 'Experience ultra-fast delivery with real-time tracking.',
+    title: "Fast Delivery",
+    description: "Experience ultra-fast delivery with real-time tracking.",
   },
   {
     icon: <FaThumbsUp className="text-4xl text-orange-500" />,
-    title: 'Delivered with Care',
-    description: 'We deliver on time with extra care and full satisfaction.',
+    title: "Delivered with Care",
+    description: "We deliver on time with extra care and full satisfaction.",
   },
 ];
 
@@ -34,7 +40,9 @@ const HowItWorks = () => {
             className="card shadow-lg bg-white p-6 rounded-xl hover:shadow-xl transition"
           >
             <div className="mb-4 flex justify-center">{step.icon}</div>
-            <h3 className="text-xl font-semibold text-neutral mb-2">{step.title}</h3>
+            <h3 className="text-xl font-semibold text-neutral mb-2">
+              {step.title}
+            </h3>
             <p className="text-sm text-gray-600">{step.description}</p>
           </div>
         ))}
