@@ -5,13 +5,15 @@ import Footer from '../pages/shared/footer/Footer';
 
 const RootLayout = () => {
     return (
-        <div className='bg-accent'>
+      <div className='bg-accent'>
+          <div className=' max-w-[1600px] mx-auto px-4'>
             <Navbar></Navbar>
             <div className='min-h-[calc(100vh-384px)]'>
                 <Outlet></Outlet>
             </div>
-            <Footer></Footer>
         </div>
+            <Footer></Footer>
+      </div>
     );
 };
 
