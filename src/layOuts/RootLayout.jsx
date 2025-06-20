@@ -1,13 +1,16 @@
 import React from 'react';
 import { Outlet } from 'react-router';
 import Navbar from '../pages/shared/header/Navbar';
+import Footer from '../pages/shared/footer/Footer';
 
 const RootLayout = () => {
     return (
         <div className='bg-accent'>
             <Navbar></Navbar>
-            <Outlet></Outlet>
-            <p>Footer</p>
+            <div className='min-h-[calc(100vh-384px)]'>
+                <Outlet></Outlet>
+            </div>
+            <Footer></Footer>
         </div>
     );
 };
