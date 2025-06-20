@@ -5,6 +5,7 @@ import OurServices from './ourServices/OurServices';
 import TrustedBy from './turstedBy/TrustedBy';
 import WhyChooseUs from './whyChooseUs/WhyChooseus';
 import Merchant from './merchant/Merchant';
+import FrequentlyAsk from './frequentlyAsk/FrequentlyAsk';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <TrustedBy></TrustedBy>
             <WhyChooseUs></WhyChooseUs>
             <Merchant></Merchant>
+            <FrequentlyAsk></FrequentlyAsk>
         </div>
     );
 };
