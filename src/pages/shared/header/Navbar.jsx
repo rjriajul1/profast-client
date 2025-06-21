@@ -1,8 +1,20 @@
 import React from "react";
 import { NavLink } from "react-router";
 import Logo from "../logo/Logo";
+import useAuth from "../../../hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
+  const {user,userSignOut} = useAuth()
+  const handleSignOut = () => {
+    userSignOut()
+    .then(res=> {
+      console.log(res);
+    })
+    .catch(error=> {
+      toast.error(error.message)
+    })
+  }
   const links = (
     <>
       <li>
@@ -63,7 +75,10 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end flex gap-4">
-       <button className="btn"> <NavLink
+      {
+        user ? <button onClick={handleSignOut} className="btn btn-primary text-black">Signout</button> :
+         <>
+         <button className="btn"> <NavLink
           className={({ isActive }) =>
             isActive ? "text-blue-500 underline" : ""
           }
@@ -78,7 +93,8 @@ const Navbar = () => {
           to="/register"
         >
           Register
-        </NavLink></button>
+        </NavLink></button></>
+      }
       </div>
     </div>
   );
