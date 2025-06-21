@@ -5,9 +5,11 @@ import useAuth from "../../../hooks/useAuth";
 import GoogleLogin from "../../../socalLogin/GoogleLogin";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
-
+import {useLocation, useNavigate } from "react-router";
 const Login = () => {
   const { signInUser } = useAuth();
+  const location = useLocation()
+  const navigate = useNavigate()
 
   const {
     register,
@@ -26,6 +28,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate(location.state || '/')
       }
     })
     .catch(error=> {

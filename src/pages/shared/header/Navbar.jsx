@@ -20,11 +20,21 @@ const Navbar = () => {
       <li>
         <NavLink
           className={({ isActive }) =>
-            isActive ? "text-blue-500 underline" : ""
+            isActive ? "text-blue-500 underline" : "btn-primary"
           }
           to="/"
         >
           Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-blue-500 underline" : "btn-primary"
+          }
+          to="/coverage"
+        >
+          Coverage
         </NavLink>
       </li>
       <li>
