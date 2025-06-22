@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 import GoogleLogin from "../../../socalLogin/GoogleLogin";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import { IoEyeSharp } from "react-icons/io5";
+import { FaEyeSlash } from "react-icons/fa";
 import {useLocation, useNavigate } from "react-router";
 const Login = () => {
-  const { signInUser } = useAuth();
+  const { signInUser,resetPassword } = useAuth();
   const location = useLocation()
   const navigate = useNavigate()
+  const [show,setShow] = useState(false)
+ 
 
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm();
 
@@ -35,6 +40,21 @@ const Login = () => {
       toast.error(error.message)
     })
   };
+
+  const handleResetPass = () => {
+    const email = getValues('email')
+    console.log(email);
+    if(!email){
+      toast.warn('please write your correct email')
+    }
+    resetPassword(email)
+    .then(()=>{
+      toast.success('Reset email sent!!')
+    })
+    .catch(error=> {
+      toast.error(error.message);
+    })
+  }
   return (
     <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
       <div className="card-body">
@@ -53,13 +73,18 @@ const Login = () => {
             <p className="text-red-500 text-[18px]">Email is Required</p>
           )}
           {/* password */}
-          <label className="label">Password</label>
+         <div className="relative">
+           <label className="label">Password</label>
           <input
-            type="password"
-            {...register("password", { required: true, minLength: 6 })}
-            className="input w-full"
+            type={show ? 'text' : 'password'}
+            {...register("password",{required:true, minLength: 6})}
+            className="input w-full font-bold text-[18px] "
             placeholder="Password"
           />
+          <div onClick={()=>setShow(!show)} className="absolute top-7 z-20 right-3">
+            {show ? <FaEyeSlash size={24} /> : <IoEyeSharp size={24}/>}
+          </div>
+         </div>
 
           {errors.password?.type === "required" && (
             <p className="text-red-500 text-[18px]">password is Required</p>
@@ -72,7 +97,7 @@ const Login = () => {
           )}
 
           <div>
-            <a className="link link-hover">Forgot password?</a>
+            <a onClick={handleResetPass} className="link link-hover">Forgot password?</a>
           </div>
           <button className="btn btn-primary text-black mt-4 w-full">
             Login
