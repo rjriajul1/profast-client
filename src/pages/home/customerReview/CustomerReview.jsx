@@ -9,7 +9,7 @@ const CustomerReview = () => {
   const reviews = useLoaderData();
 
   return (
-    <div>
+    <div data-aos="flip-left">
       <div className="flex items-center flex-col">
         <div>
           <img src={customerLogo} alt="" />

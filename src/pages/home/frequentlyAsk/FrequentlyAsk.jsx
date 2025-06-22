@@ -14,7 +14,8 @@ const FrequentlyAsk = () => {
           with ease!
         </p>
       </div>
-      <div className="collapse collapse-arrow bg-base-100 border border-base-300 mb-3">
+      {/* question 1 */}
+      <div data-aos="fade-right" className="collapse collapse-arrow bg-base-100 border border-base-300 mb-3">
         <input type="radio" name="my-accordion-2" defaultChecked />
         <div className="collapse-title font-semibold">
           How does this posture corrector work?
@@ -24,7 +25,8 @@ const FrequentlyAsk = () => {
         A posture corrector works by providing support and gentle alignment to your shoulders, back, and spine, encouraging you to maintain proper posture throughout the day. Here’s how it typically functions: A posture corrector works by providing support and gentle alignment to your shoulders.
         </div>
       </div>
-      <div className="collapse collapse-arrow bg-base-100 border border-base-300 mb-3">
+      {/* question 2 */}
+      <div data-aos="fade-left" className="collapse collapse-arrow bg-base-100 border border-base-300 mb-3">
         <input type="radio" name="my-accordion-2" defaultChecked />
         <div className="collapse-title font-semibold">
           How does this posture corrector work?
@@ -34,7 +36,8 @@ const FrequentlyAsk = () => {
         A posture corrector works by providing support and gentle alignment to your shoulders, back, and spine, encouraging you to maintain proper posture throughout the day. Here’s how it typically functions: A posture corrector works by providing support and gentle alignment to your shoulders.
         </div>
       </div>
-      <div className="collapse collapse-arrow bg-base-100 border border-base-300 mb-3">
+      {/* question 3 */}
+      <div data-aos="fade-right" className="collapse collapse-arrow bg-base-100 border border-base-300 mb-3">
         <input type="radio" name="my-accordion-2" defaultChecked />
         <div className="collapse-title font-semibold">
           How does this posture corrector work?
@@ -44,7 +47,8 @@ const FrequentlyAsk = () => {
         A posture corrector works by providing support and gentle alignment to your shoulders, back, and spine, encouraging you to maintain proper posture throughout the day. Here’s how it typically functions: A posture corrector works by providing support and gentle alignment to your shoulders.
         </div>
       </div>
-      <div className="collapse collapse-arrow bg-base-100 border border-base-300 mb-3">
+      {/* question 4 */}
+      <div data-aos="fade-left" className="collapse collapse-arrow bg-base-100 border border-base-300 mb-3">
         <input type="radio" name="my-accordion-2" defaultChecked />
         <div className="collapse-title font-semibold">
           How does this posture corrector work?

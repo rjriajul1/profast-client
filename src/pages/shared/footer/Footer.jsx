@@ -18,6 +18,16 @@ const Footer = () => {
           <li>
        <NavLink className={({isActive})=>isActive ? 'text-blue-500 underline' : ''} to='/'>Home</NavLink>
       </li>
+        <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-blue-500 underline" : "btn-primary"
+                }
+                to="/coverage"
+              >
+                Coverage
+              </NavLink>
+            </li>
       <li>
        <NavLink className={({isActive})=>isActive ? 'text-blue-500 underline' : ''} to='/about'>About Us</NavLink>
       </li>

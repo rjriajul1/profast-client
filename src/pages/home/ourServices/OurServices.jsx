@@ -58,6 +58,7 @@ const OurServices = () => {
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <div
+             data-aos="fade-left"
               key={index}
                 className={`card bg-white p-6 rounded-xl shadow-md hover:bg-[#CAEB66] transition-colors duration-300
                flex flex-col items-center text-center`}

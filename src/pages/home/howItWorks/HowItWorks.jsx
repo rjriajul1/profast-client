@@ -36,6 +36,7 @@ const HowItWorks = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
         {steps.map((step, index) => (
           <div
+           data-aos="fade-right"
             key={index}
             className="card shadow-lg bg-white p-6 rounded-xl hover:shadow-xl transition"
           >

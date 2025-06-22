@@ -3,7 +3,9 @@ import location from "../../../assets/location-merchant.png";
 import backImg from '../../../assets/be-a-merchant-bg.png'
 const Merchant = () => {
   return (
-    <div style={{backgroundImage:`url(${backImg})`}} className="flex gap-6 rounded-2xl my-6 flex-col lg:flex-row bg-[#03373D] lg:p-20  bg-no-repeat ">
+    <div data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="1000"  style={{backgroundImage:`url(${backImg})`}} className="flex gap-6 rounded-2xl my-6 flex-col lg:flex-row bg-[#03373D] lg:p-20  bg-no-repeat ">
       <div className="card-body">
         <h2 className="card-title text-white font-extrabold text-4xl">
           Merchant and Customer Satisfaction <br /> is Our First Priority
