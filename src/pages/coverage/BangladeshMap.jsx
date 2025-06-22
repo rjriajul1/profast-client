@@ -17,7 +17,8 @@ const customIcon = new L.Icon({
 function FlyToDistrict({ coords }) {
     const map = useMap();
     if (coords) {
-        map.flyTo(coords, 14, { duration: 1.5 });
+        map.flyTo(coords,14, { duration: 1.5 });
+        
     }
     return null;
 }
@@ -74,7 +75,8 @@ const BangladeshMap = ({ serviceCenters }) => {
                     serviceCenters.map((center, index) => <Marker
                         key={index}
                         position={[center.latitude, center.longitude]}
-                        icon={customIcon}>
+                        icon={customIcon}
+                        >
                         <Popup autoOpen={center.district === activeDistrict}>
                             <strong>{center.district}</strong><br />
                             {center.covered_area.join(', ')}

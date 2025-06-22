@@ -14,6 +14,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+        loader: ()=> fetch('./reviews.json')
       },
       {
         path:'coverage',
