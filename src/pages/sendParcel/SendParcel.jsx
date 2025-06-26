@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
+import useAxios from "../../hooks/useAxios";
 
 const SendParcel = () => {
   const { user } = useAuth();
@@ -22,6 +23,7 @@ const SendParcel = () => {
     sender: [],
     receiver: [],
   });
+  const axiosSecure = useAxios()
 
   const type = watch("type");
   const senderRegion = watch("senderRegion");
@@ -94,7 +96,7 @@ const SendParcel = () => {
           onClick={async () => {
             toast.dismiss(t.id);
             try {
-             const {data} = await axios.post(`${import.meta.env.VITE_URL}/add-parcel`,parcelData);
+             const {data} = await axiosSecure.post('/add-parcel',parcelData);
               if(data.insertedId){
                 toast.success("Submitted!");
               }
@@ -150,7 +152,7 @@ const SendParcel = () => {
             <div>
               <label htmlFor="">parcel Name</label>
               <input
-                {...register("title", { required: true })}
+                {...register("parcelName", { required: true })}
                 placeholder="Parcel Name"
                 className="input input-bordered"
               />

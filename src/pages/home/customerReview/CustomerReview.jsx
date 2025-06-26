@@ -7,6 +7,7 @@ import Marquee from "react-fast-marquee";
 
 const CustomerReview = () => {
   const reviews = useLoaderData();
+  // console.log(reviews);
 
   return (
     <div data-aos="flip-left">
@@ -28,7 +29,7 @@ const CustomerReview = () => {
       <Marquee speed={50} pauseOnHover>
 
       <div className="flex gap-8 my-6">
-        {reviews.map((review) => (
+        {reviews?.map((review) => (
           <ReviewCard key={review.id} review={review}></ReviewCard>
         ))}
       </div>

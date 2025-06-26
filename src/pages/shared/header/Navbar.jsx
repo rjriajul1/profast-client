@@ -47,6 +47,18 @@ const Navbar = () => {
           Send a parcel
         </NavLink>
       </li>
+      {
+        user && <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-blue-500 underline" : ""
+          }
+          to="/dashboard"
+        >
+          Dashboard
+        </NavLink>
+      </li>
+      }
       <li>
         <NavLink
           className={({ isActive }) =>
@@ -60,7 +72,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 shadow-sm mt-2">
+    <div className="navbar w-full bg-base-100 shadow-sm mt-2">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
