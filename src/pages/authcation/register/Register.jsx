@@ -8,7 +8,7 @@ import { FaEyeSlash } from "react-icons/fa";
 import { IoEyeSharp } from "react-icons/io5";
 
 const Register = () => {
-  const { userCreate } = useAuth();
+  const { userCreate, emailVerification,userSignOut } = useAuth();
   const navigate = useNavigate()
     const [show,setShow] = useState(false)
 
@@ -28,7 +28,19 @@ const Register = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate('/')
+         
+          // email verification 
+          emailVerification()
+          .then(res=>{
+            console.log(res);
+            alert('verification email sent !!')
+
+          })
+          .catch(error=> {
+            console.log(error);
+          })
+           userSignOut()
+           navigate('/login')
         }
       })
       .catch((error) => {

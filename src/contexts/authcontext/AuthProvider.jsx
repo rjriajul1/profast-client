@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendEmailVerification,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -16,7 +17,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
-  console.log(user);
+  // console.log(user);
 
   // create an account with email and password
   const userCreate = (email, password) => {
@@ -24,27 +25,32 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  // sing in user with password and email 
+  // sing in user with password and email
   const signInUser = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  // login with google 
+  // login with google
   const loginWithGoogle = () => {
-    return signInWithPopup(auth, googleProvider)
-  }
+    return signInWithPopup(auth, googleProvider);
+  };
 
-  // sign out user 
+  // sign out user
   const userSignOut = () => {
     setLoading(true);
     return signOut(auth);
   };
 
-  // reset password 
+  // reset password
   const resetPassword = (email) => {
-    return sendPasswordResetEmail(auth, email)
-  }
+    return sendPasswordResetEmail(auth, email);
+  };
+
+  // user email verification
+  const emailVerification = () => {
+    return sendEmailVerification(auth.currentUser);
+  };
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -62,7 +68,8 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     loginWithGoogle,
-    resetPassword
+    resetPassword,
+    emailVerification,
   };
   return <AuthContext value={userInfo}>{children}</AuthContext>;
 };

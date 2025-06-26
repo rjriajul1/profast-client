@@ -40,6 +40,16 @@ const Navbar = () => {
       <li>
         <NavLink
           className={({ isActive }) =>
+            isActive ? "text-blue-500 underline" : "btn-primary"
+          }
+          to="/sendParcel"
+        >
+          Send a parcel
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
             isActive ? "text-blue-500 underline" : ""
           }
           to="/about"
