@@ -6,6 +6,7 @@ import useAxios from "../../../hooks/useAxios";
 import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { transformation } from "leaflet";
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -73,14 +74,14 @@ const PaymentForm = () => {
       setError("");
       if (result.paymentIntent.status === "succeeded") {
         console.log("payment success");
-        console.log(result);
+       const transactionId = result.paymentIntent.id
 
         // save payment history
         const newPayment = {
           email: user?.email,
           parcelId,
           amount,
-          transactionId: result.paymentIntent.id,
+          transactionId,
           paymentMethod: result.paymentIntent.payment_method_types,
         };
 
@@ -93,6 +94,7 @@ const PaymentForm = () => {
             position: "top-end",
             icon: "success",
             title: "Your payment successful",
+            html: `<strong>Transaction ID: </strong> <code>${transformation}</code>`,
             showConfirmButton: false,
             timer: 1500,
           });
