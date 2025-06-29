@@ -26,9 +26,9 @@ const CustomerReview = () => {
           </p>
         </div>
       </div>
-      <Marquee speed={50} pauseOnHover>
+      <Marquee speed={80} pauseOnHover>
 
-      <div className="flex gap-8 my-6">
+      <div className="flex gap-8 ml-8 my-6">
         {reviews?.map((review) => (
           <ReviewCard key={review.id} review={review}></ReviewCard>
         ))}

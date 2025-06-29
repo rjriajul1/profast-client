@@ -52,7 +52,7 @@ const DashboardLayout = () => {
               }
               to="/dashboard/myParcels"
             >
-              Send a parcel
+              My Parcels
             </NavLink>
           </li>
          </div>
