@@ -3,6 +3,7 @@ import useAuth from "../hooks/useAuth";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router";
+import axios from "axios";
 
 const GoogleLogin = () => {
   const { loginWithGoogle } = useAuth();
@@ -10,7 +11,8 @@ const GoogleLogin = () => {
   const navigate = useNavigate()
   const handleGoogle = () => {
     loginWithGoogle()
-      .then((res) => {
+      .then(async(res) => {
+        const user = res.user;
         if (res.user) {
           Swal.fire({
             position: "top-end",
@@ -20,6 +22,18 @@ const GoogleLogin = () => {
             timer: 1500,
           });
           navigate(location.state || '/')
+          // save to database
+           const userInfo = {
+            email:user?.email,
+            role: "user", //default  user
+            created_at:new Date().toISOString(),
+            last_log_in: new Date().toISOString()
+          }
+              const res = await axios.post('http://localhost:3000/users',userInfo)
+              console.log(res.data);
+          if(res.data.insertedId){
+            console.log(res.data);
+          }
         }
       })
       .catch((error) => {

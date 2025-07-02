@@ -14,7 +14,6 @@ const Register = () => {
   const [show, setShow] = useState(false);
   const [profilePic,setProfilePic] = useState('')
 
-
   const {
     register,
     handleSubmit,
@@ -23,7 +22,7 @@ const Register = () => {
 
   const onSubmit = (data) => {
     userCreate(data?.email, data?.password)
-      .then((res) => {
+      .then(async(res) => {
         if (res.user) {
           Swal.fire({
             position: "top-end",
@@ -45,6 +44,19 @@ const Register = () => {
           .catch(error=>{
             console.log(error)
           })
+
+          // save user info database
+          const userInfo = {
+            email:data?.email,
+            role: "user", //default  user
+            created_at:new Date().toISOString(),
+            last_log_in: new Date().toISOString()
+          }
+
+          const res = await axios.post('http://localhost:3000/users',userInfo)
+          if(res.data.insertedId){
+            console.log(res.data);
+          }
 
           // email verification
           emailVerification()
@@ -92,12 +104,17 @@ const Register = () => {
           />
           {/* profile */}
           <label className="label">Your Photo</label>
-          <input
+         <div className="relative">
+           <input
             onChange={handlePhoto}
             type="file"
             className="input w-full"
             placeholder="Your Photo"
           />
+         {profilePic && <div className="absolute top-0 right-4">
+           <img className="w-13 h-10 rounded-xl p-1 object-cover" src={profilePic} alt="" />
+         </div>}
+         </div>
           {/* email */}
           <label className="label">Email</label>
           <input
