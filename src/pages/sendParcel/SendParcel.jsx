@@ -13,7 +13,7 @@ const SendParcel = () => {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    // formState: { errors },
   } = useForm();
 
   const [centers, setCenters] = useState([]);
@@ -33,8 +33,6 @@ const SendParcel = () => {
   const randomNumber = Math.floor(1000000 + Math.random() * 9000000); // 7-digit number
   return randomNumber;
 }
-
-
 
 
   useEffect(() => {

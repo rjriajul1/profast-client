@@ -47,6 +47,16 @@ const Navbar = () => {
           Send a parcel
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-blue-500 underline" : "btn-primary"
+          }
+          to="/beARider"
+        >
+          Be a Rider
+        </NavLink>
+      </li>
       {
         user && <li>
         <NavLink

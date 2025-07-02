@@ -6,6 +6,8 @@ import {
   FaMoneyCheckAlt,
   FaSearchLocation,
   FaUserEdit,
+  FaUserClock,
+  FaMotorcycle,
 } from "react-icons/fa";
 
 const DashboardLayout = () => {
@@ -94,6 +96,33 @@ const DashboardLayout = () => {
                 to="/dashboard/track"
               >
                 <FaSearchLocation /> Track a Parcel
+              </NavLink>
+            </li>
+
+            {/* rider link  */}
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-blue-500 underline text-xl font-semibold flex items-center gap-2"
+                    : "text-xl font-semibold flex items-center gap-2"
+                }
+                to="/dashboard/pendingRider"
+              >
+                <FaUserClock /> Pending Rider
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-blue-500 underline text-xl font-semibold flex items-center gap-2"
+                    : "text-xl font-semibold flex items-center gap-2"
+                }
+                to="/dashboard/activeRider"
+              >
+                <FaMotorcycle /> Active Rider
               </NavLink>
             </li>
 
