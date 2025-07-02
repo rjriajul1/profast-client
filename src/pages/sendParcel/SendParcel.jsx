@@ -29,6 +29,14 @@ const SendParcel = () => {
   const senderRegion = watch("senderRegion");
   const receiverRegion = watch("receiverRegion");
 
+  function generateTrackingId() {
+  const randomNumber = Math.floor(1000000 + Math.random() * 9000000); // 7-digit number
+  return randomNumber;
+}
+
+
+
+
   useEffect(() => {
     axios
       .get("./serviceCenter.json")
@@ -86,8 +94,9 @@ const SendParcel = () => {
       delivery_status: "not_collected",
       creation_date: new Date().toISOString(),
       senderName: user?.displayName,
+      trackingId: generateTrackingId()
     };
-    // console.table(parcelData);
+    console.table(parcelData);
     toast((t) => (
       <div>
         <p className="font-semibold">Cost: ৳{cost}</p>

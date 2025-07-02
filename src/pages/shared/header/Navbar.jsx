@@ -3,7 +3,7 @@ import { NavLink } from "react-router";
 import Logo from "../logo/Logo";
 import useAuth from "../../../hooks/useAuth";
 import { toast } from "react-toastify";
-
+import profile from '../../../assets/profiel.png'
 const Navbar = () => {
   const {user,userSignOut} = useAuth()
   const handleSignOut = () => {
@@ -107,6 +107,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end flex gap-4">
+       {user ? <img className="rounded-full w-14 h-14" src={user?.photoURL}/>: <img className="rounded-full w-14 h-14" src={profile}/>}
       {
         user ? <button onClick={handleSignOut} className="btn btn-primary text-black">Signout</button> :
          <>
