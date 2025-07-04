@@ -9,6 +9,7 @@ import {
   FaUserClock,
   FaMotorcycle,
   FaUserShield,
+  FaUserPlus,
 } from "react-icons/fa";
 import useUserRole from "../hooks/useUserRole";
 
@@ -104,8 +105,21 @@ const DashboardLayout = () => {
             </li>
 
             {/* rider link  */}
-            {!isLoading && role === 'admin' &&
+            {!isLoading && role === "admin" && (
               <>
+                <li>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-blue-500 underline text-xl font-semibold flex items-center gap-2"
+                        : "text-xl font-semibold flex items-center gap-2"
+                    }
+                    to="/dashboard/assignRider"
+                  >
+                     <FaUserPlus /> Assign Rider
+                  </NavLink>
+                </li>
+
                 <li>
                   <NavLink
                     className={({ isActive }) =>
@@ -144,7 +158,7 @@ const DashboardLayout = () => {
                   </NavLink>
                 </li>
               </>
-            }
+            )}
 
             <li>
               <NavLink

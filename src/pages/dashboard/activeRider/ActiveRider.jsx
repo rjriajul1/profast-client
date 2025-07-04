@@ -22,6 +22,7 @@ const ActiveRider = () => {
       return res.data;
     },
   });
+  console.log(riders);
 
   // ❌ Deactivate rider
   const handleDeactivate = (id) => {

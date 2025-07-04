@@ -94,7 +94,6 @@ const SendParcel = () => {
       senderName: user?.displayName,
       trackingId: generateTrackingId()
     };
-    console.table(parcelData);
     toast((t) => (
       <div>
         <p className="font-semibold">Cost: ৳{cost}</p>
