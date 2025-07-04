@@ -9,7 +9,7 @@ import { IoEyeSharp } from "react-icons/io5";
 import axios from "axios";
 
 const Register = () => {
-  const { userCreate, emailVerification, userSignOut,userProfileUpdate } = useAuth();
+  const { userCreate, emailVerification,userProfileUpdate } = useAuth();
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [profilePic,setProfilePic] = useState('')
@@ -60,15 +60,14 @@ const Register = () => {
 
           // email verification
           emailVerification()
-            .then((res) => {
-              console.log(res);
-              alert("verification email sent !!");
+            .then(() => {
+              navigate('/')
             })
             .catch((error) => {
               console.log(error);
             });
-          userSignOut();
-          navigate("/login");
+          // userSignOut();
+          // navigate("/login");
         }
       })
       .catch((error) => {

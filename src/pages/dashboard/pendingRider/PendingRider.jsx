@@ -22,9 +22,9 @@ const PendingRider = () => {
     },
   });
 
-  const handleAccept = async (id) => {
+  const handleAccept = async (id,email) => {
     await axiosSecure
-      .patch(`/riders/approve/${id}`)
+      .patch(`/riders/approve/${id}`,{email,status:'active'})
       .then((res) => {
         if (res.data.success) {
           Swal.fire({
@@ -117,7 +117,7 @@ const PendingRider = () => {
                   {/* Accept */}
                   <button
                     className="btn btn-sm btn-success text-white"
-                    onClick={() => handleAccept(rider._id)}
+                    onClick={() => handleAccept(rider._id,rider.email)}
                   >
                     <FaCheck />
                   </button>
