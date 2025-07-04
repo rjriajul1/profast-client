@@ -27,7 +27,6 @@ const MakeAdmin = () => {
 
   //make to admin
   const makeAdmin = async (id) => {
-    console.log(id);
     try {
       const res = await axiosSecure.patch(`/users/${id}/role`, {
         role: "admin",

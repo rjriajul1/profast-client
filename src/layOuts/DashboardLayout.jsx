@@ -10,8 +10,11 @@ import {
   FaMotorcycle,
   FaUserShield,
 } from "react-icons/fa";
+import useUserRole from "../hooks/useUserRole";
 
 const DashboardLayout = () => {
+  const { role, isLoading } = useUserRole();
+
   return (
     <div
       data-aos="fade-right"
@@ -101,43 +104,47 @@ const DashboardLayout = () => {
             </li>
 
             {/* rider link  */}
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-blue-500 underline text-xl font-semibold flex items-center gap-2"
-                    : "text-xl font-semibold flex items-center gap-2"
-                }
-                to="/dashboard/pendingRider"
-              >
-                <FaUserClock /> Pending Rider
-              </NavLink>
-            </li>
+            {!isLoading && role === 'admin' &&
+              <>
+                <li>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-blue-500 underline text-xl font-semibold flex items-center gap-2"
+                        : "text-xl font-semibold flex items-center gap-2"
+                    }
+                    to="/dashboard/pendingRider"
+                  >
+                    <FaUserClock /> Pending Rider
+                  </NavLink>
+                </li>
 
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-blue-500 underline text-xl font-semibold flex items-center gap-2"
-                    : "text-xl font-semibold flex items-center gap-2"
-                }
-                to="/dashboard/activeRider"
-              >
-                <FaMotorcycle /> Active Rider
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-blue-500 underline text-xl font-semibold flex items-center gap-2"
-                    : "text-xl font-semibold flex items-center gap-2"
-                }
-                to="/dashboard/makeAdmin"
-              >
-                <FaUserShield /> Make Admin
-              </NavLink>
-            </li>
+                <li>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-blue-500 underline text-xl font-semibold flex items-center gap-2"
+                        : "text-xl font-semibold flex items-center gap-2"
+                    }
+                    to="/dashboard/activeRider"
+                  >
+                    <FaMotorcycle /> Active Rider
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-blue-500 underline text-xl font-semibold flex items-center gap-2"
+                        : "text-xl font-semibold flex items-center gap-2"
+                    }
+                    to="/dashboard/makeAdmin"
+                  >
+                    <FaUserShield /> Make Admin
+                  </NavLink>
+                </li>
+              </>
+            }
 
             <li>
               <NavLink
